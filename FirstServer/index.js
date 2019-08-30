@@ -3,6 +3,7 @@ const app = express();
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const Concorrentes = require('./models/Post')
+const Usuarios = require('./models/Post')
 
 
 //template config
@@ -29,9 +30,9 @@ app.get("/conteudo", function(req, res){
     Concorrentes.findAll().then(function(posts){
        res.render('conteudo', {posts: posts}) 
     })
-    // res.render('conteudo')
 });
 
+//botao deletar
 app.get('/conteudo/:id', function(req,res){
     Concorrentes.destroy({where: {'id': req.params.id}}).then(function(){
         res.redirect('back');
@@ -40,10 +41,23 @@ app.get('/conteudo/:id', function(req,res){
     })
 });
 
+//login
+app.post("/login", function(req, res){
+    Usuarios.findAll().then(function(posts){
+        if(posts.loginId == req.body.inpLoginId && posts.senha == req.body.inpSenha){
+                Concorrentes.findAll().then(function(posts){
+                   res.render('conteudo', {posts: posts}) 
+                })
+        }else{
+            res.send("Erro ao logar!")
+        }
+    })
+})
+
 
 //posts ######form de cadastro
 app.post("/cadastrar", function(req, res){
-      Concorrentes.create({
+    Concorrentes.create({
         nome: req.body.inpNome,
         telefone: req.body.inpTelefone,
         email: req.body.inpEmail,
@@ -54,27 +68,25 @@ app.post("/cadastrar", function(req, res){
         // especial: req.body.radioMarcar
         }).then(function(){
             res.redirect('conteudo')
-        }).catch(function(erro){
-            res.redirect('cadastrar')
-        })  
+        })
     
 });
 
 //update cadastro
-app.post('/editar/:id', function(req,res){
+app.post("/editar/:id", function(req,res){
     Concorrentes.update({
-        nome: 'teste de update',
+        nome: req.body.inpNome,
         telefone: req.body.inpTelefone,
         email: req.body.inpEmail,
         nascimento: req.body.inpNascimento,
         cursFacaul: req.body.radioFacul,
         pretSalarial: req.body.inpSalarial,
         habilidades: req.body.inpHabilidades
-        },
         // especial: req.body.radioMarcar
+        },
         {where: {'id': req.params.id}}
     ).then(function(){
-        res.redirect('back');
+        res.redirect('conteudo');
     }).catch(function(erro){
         res.send("Erro ao atualizar!")
     })

@@ -43,3 +43,4 @@ const Concorrentes = db.sequelize.define('concorrentes', {
 
 
 module.exports = Concorrentes
+module.exports = Usuarios
