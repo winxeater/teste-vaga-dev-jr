@@ -25,7 +25,7 @@
                         <th scope="col">Nascimento</th>
                         <th scope="col">Pret. Salarial</th>
                         <th scope="col">Curs. Faculdade</th>
-                        <th scope="col">ICONE</th>
+                        <th scope="col" class="text-center">Ações</th>
                         
                     </tr>
                 </thead>
@@ -39,6 +39,11 @@
                         <td>{{nascimento}}</td>
                         <td>{{pretSalarial}}</td>
                         <td>{{habilidades}}</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-success">Marcar</button>
+                            <a href="/editar/{{id}}"><button type="button" class="btn btn-danger">Editar</button></a>
+                            <a href="/conteudo/{{id}}"><button type="button" class="btn btn-warning">Deletar</button></a>
+                        </td>
                     </tr>
                     {{/each}}
                 </tbody>
