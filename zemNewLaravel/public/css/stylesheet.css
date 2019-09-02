@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+*{
+    padding: 0;
+    margin: 0;
+    list-style: 0;
+    outline: 0;
+    border: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -box-sizing: border-box;
+}
+
+body{
+    background: #9C9C9C;
+}
+/*
+* login page
+* ===========================
+*/
+div.background{
+    position: absolute;
+    left: 0;
+    width: calc(100% - 300px);
+    height: 100%;
+    background-image: url(../assets/images/login-background.jpg);
+    background-size: cover;
+}
+
+section#conteudo-view{
+    position: absolute;
+    right: 0;
+    float: right;
+    width: 300px;
+    height: 100%;
+    background: #6324f6;
+    padding: 20px;
+}
+
+section#conteudo-view h1{
+    font: 3em 'Fredoka One', cursive;
+    color: white;
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+}
+
+section#conteudo-view h3{
+    font: .8em 'Fredoka One', cursive;
+    color: white;
+    float: left;
+    width: 100%;
+}
+
+section#conteudo-view h3,
+section#conteudo-view form p{
+    font: .8em 'Fredoka One', cursive;
+    color: white;
+    float: left;
+    width: 100%;
+}
+
+section#conteudo-view form,
+section#conteudo-view form label{
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+section#conteudo-view form{
+    margin-top: 40px;
+}
+
+section#conteudo-view form p{
+    font-size: 1.25em;
+}
+
+section#conteudo-view form input[type="submit"],
+section#conteudo-view form label input{
+    float: left;
+    width: 100%;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    border: 2px solid #52ca9b;
+    color: #959595;
+    font: 1em 'Arial';
+}
+
+section#conteudo-view form input[type="submit"]{
+    background: yellow;
+    text-align: center;
+    font: 1em 'Fredoka One', cursive;
+    width: 60%;
+    float: right;
+    color: #6324f6;
+}
+
+/* menu add */
+#nav-principal{
+    float: left;
+    width: 280px;
+    height: 100%;
+    border-right: 1px solid #e9e9e9;
+    box-shadow: 0 0 15 rgba(0, 0, 0, .15);
+    background: white;
+}
+
+#nav-principal ul
+#nav-principal ul li{
+    float: left;
+    width: 100%;
+    background: #9c9c9c;
+}
+
+#nav-principal ul li a{
+    float: left;
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #e9e9e9;
+    border-radius: 12px;
+}
+
+#nav-principal ul li a i{
+    float: left;
+    height: 80px;
+    width: 80px;
+    color: inherit;
+    text-align: center;
+    line-height: 80px;
+    font-size: 2em;
+}
+
+#nav-principal ul li a h3{
+    float: left;
+    height: 80px;
+    font: 1.25em/80px 'Fredoka One', cursive;
+    color: #9c9c9c;
+}
+
+#nav-principal ul li a:hover h3{
+    
+    color: #52ca9b;
+}
