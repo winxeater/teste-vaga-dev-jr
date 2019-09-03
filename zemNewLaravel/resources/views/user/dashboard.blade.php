@@ -1,16 +1,16 @@
 @extends('templates.master')
 
 
-@section('css-view')
+{{-- @section('css-view')
 
 @endsection
 
 
 @section('js-view')
 
-@endsection
+@endsection --}}
 
 
 @section('conteudo-view')
-
+   @yield('table')
 @endsection

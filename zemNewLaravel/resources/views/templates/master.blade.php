@@ -10,10 +10,11 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" rel="stylesheet">
 
     
-    @yield('cs-view')
+   
 </head>
 <body>
     @include('templates.menu')
+    @include('templates.table')
     @yield('conteudo-view')
     @yield('js-view')
 

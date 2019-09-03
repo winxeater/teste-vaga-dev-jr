@@ -12,9 +12,15 @@
 */
 
 Route::get('/', ['uses' => 'Controller@homepage']);
-Route::get('/cadastro', ['uses' => 'Controller@cadastrar']);
+// Route::get('/cadastro', ['uses' => 'DashBoardController@cadastro']);
 
 //auto routes
 Route::get('/login', ['uses' => 'Controller@fazerLogin']);
 Route::post('/login', ['as' => 'user.login', 'uses' => 'DashBoardController@auth']);
+
+//dashboard
 Route::get('/bashboard', ['as' => 'user.dashboard', 'uses' => 'DashBoardController@index']);
+
+//cadastro de concorrentes
+Route::get('/cadastro', ['as' => 'cadastro.cadastro', 'uses' => 'DashBoardController@cadastro']);
+Route::resource('cadastro', 'ServicesController');

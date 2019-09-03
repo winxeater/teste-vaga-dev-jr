@@ -26,6 +26,10 @@ class DashboardController extends Controller
         return view('user.dashboard');
     }
 
+    public function cadastro(){
+        return view('templates/cadastro/cadastro');
+    }
+
     public function auth(Request $request){
 
         $data = [

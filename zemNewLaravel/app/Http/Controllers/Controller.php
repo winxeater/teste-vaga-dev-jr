@@ -19,9 +19,6 @@ class Controller extends BaseController
             ]);
     }
 
-    public function cadastro(){
-        return view('cadastro');
-    }
 
     public function fazerLogin(){
         return view('user.login');
