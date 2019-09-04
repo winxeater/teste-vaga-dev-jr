@@ -16,11 +16,12 @@ class DashboardController extends ServicesController
     protected $validator;
     protected $servicesrepository;
 
-    public function __construct(UserRepository $repository, UserValidator $validator, ServicesRepository $servicesrepository)
+    public function __construct(UserRepository $repository, UserValidator $validator, ServicesRepository $servicesrepository, Auth $auth)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
         $this->servicesrepository = $servicesrepository;
+        $this->auth  = $auth;
     }
 
     public function index(){
@@ -70,5 +71,11 @@ class DashboardController extends ServicesController
 
 
         // echo "auth mt";
+    }
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect('/login');
     }
 }

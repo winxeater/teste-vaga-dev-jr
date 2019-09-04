@@ -16,9 +16,9 @@
         </li>
 
         <li class="col-1">
-            <a href="" class="">
-                <button type="button" class="btn btn-light mrg"><i class="fas fa-sign-out-alt"></i></button>
-            </a>
+        {!! Form::open(['route' => 'user.logout','method' => 'post']) !!}
+                <button type="submit" class="btn btn-light mrg"><i class="fas fa-sign-out-alt"></i></button>
+        {!! Form::close()!!}
         </li>
     </ul>
 </nav>

@@ -119,9 +119,11 @@ class ServicesController extends Controller
      */
     public function edit($id)
     {
-        $service = $this->repository->find($id);
+        $concorrente = $this->repository->find($id);
 
-        return view('services.edit', compact('service'));
+        return view('templates/cadastro/edit', [
+            'concorrentes' => $concorrente,
+            ]);
     }
 
     /**
@@ -136,35 +138,22 @@ class ServicesController extends Controller
      */
     public function update(ServicesUpdateRequest $request, $id)
     {
-        try {
+        $request = $this->service->update($request->all(), $id);
 
-            $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+        $concorrente = $request['success'] ? $request['data'] : null;
 
-            $service = $this->repository->update($request->all(), $id);
+        $concorrentes = $this->repository->all();
 
-            $response = [
-                'message' => 'Services updated.',
-                'data'    => $service->toArray(),
-            ];
+        // dd(true);
 
-            if ($request->wantsJson()) {
+        session()->flash('success', [
+            'success'  => $request['success'],
+            'message' => $request['message']
+        ]);
 
-                return response()->json($response);
-            }
-
-            return redirect()->back()->with('message', $response['message']);
-        } catch (ValidatorException $e) {
-
-            if ($request->wantsJson()) {
-
-                return response()->json([
-                    'error'   => true,
-                    'message' => $e->getMessageBag()
-                ]);
-            }
-
-            return redirect()->back()->withErrors($e->getMessageBag())->withInput();
-        }
+        return view('user.dashboard', [
+            'concorrentes' => $concorrentes,
+        ]);
     }
 
 

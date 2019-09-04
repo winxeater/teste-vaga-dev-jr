@@ -23,7 +23,9 @@
     <tbody>
 {{-- 'name', 'email', 'phone', 'birth', 'marcar', 'facul', 'salarial', 'habilidades',  --}}
         @foreach ($concorrentes as $concorrente)
-        <tr>
+        @if ($concorrente->marcar == '1') {{$classe = "bg-success"}}
+        <tr class="{{$classe}}">
+        @endif
             <th scope="row"></th>
             <td>{{ $concorrente->name }}</td> 
             <td>{{ $concorrente->email }}</td>
@@ -34,7 +36,9 @@
             <td>{{ $concorrente->habilidades }}</td>
             <td class="text-center">
                 <div class="form-group row">
-                    <button type="button" class="btn btn-warning"><i class="fas fa-user-edit"></i></i></button>
+                
+                    <a href="{{ route('cadastrar.edit', $concorrente->id) }}"><button type="button" class="btn btn-warning"><i class="fas fa-user-edit"></i></i></button></a>
+
                     {!! Form::open(['route' => ['cadastrar.destroy', $concorrente->id], 'method' => 'DELETE']) !!} 
                     {{-- {!! Form::submit(' --}}
                     <button type="submit" class="btn btn-danger"><i class="fas fa-user-slash"></i></button>

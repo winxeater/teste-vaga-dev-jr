@@ -14,14 +14,16 @@
 Route::get('/', ['uses' => 'Controller@homepage']);
 // Route::get('/cadastro', ['uses' => 'DashBoardController@cadastro']);
 
-//auto routes
+//auth routes
 Route::get('/login', ['uses' => 'Controller@fazerLogin']);
 Route::post('/login', ['as' => 'user.login', 'uses' => 'DashBoardController@auth']);
+Route::post('/logout', ['as' => 'user.logout', 'uses' => 'DashBoardController@logout']);
 
 //dashboard
 Route::get('/bashboard', ['as' => 'user.dashboard', 'uses' => 'DashBoardController@index']);
 
 //cadastro de concorrentes
 Route::get('/cadastro', ['as' => 'cad.cadastro', 'uses' => 'DashBoardController@cadastro']);
+
 // Route::post('/cadastrar', ['as' => 'cadastrar.create', 'uses' => 'Controller@cadastrar']);
 Route::resource('cadastrar', 'ServicesController');
