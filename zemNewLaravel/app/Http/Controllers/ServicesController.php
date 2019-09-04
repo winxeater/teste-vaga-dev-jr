@@ -70,16 +70,23 @@ class ServicesController extends Controller
      */
     public function store(ServicesCreateRequest $request)
     {
-        $request = $this->$service->store($request->all());
+        $request = $this->service->store($request->all());
 
-        if($request['success'])
-            $concorrente = $request('data');
-        else
-            $usuario = null;
+        $concorrente = $request['success'] ? $request['data'] : null;
 
-        return view('cadastro.cadastro', [
-            'concorrente' => $concorrente,
+        $concorrentes = $this->repository->all();
+
+        // dd(true);
+
+        session()->flash('success', [
+            'success'  => $request['success'],
+            'message' => $request['message']
         ]);
+
+        return view('user.dashboard', [
+            'concorrentes' => $concorrentes,
+        ]);
+
     }
 
     /**
@@ -170,16 +177,19 @@ class ServicesController extends Controller
      */
     public function destroy($id)
     {
-        $deleted = $this->repository->delete($id);
+        $request = $this->service->destroy($id);
 
-        if (request()->wantsJson()) {
+        $concorrente = $request['success'] ? $request['data'] : null;
 
-            return response()->json([
-                'message' => 'Services deleted.',
-                'deleted' => $deleted,
-            ]);
-        }
+        // $concorrentes = $this->repository->all();
 
-        return redirect()->back()->with('message', 'Services deleted.');
+        // dd(true);
+
+        session()->flash('success', [
+            'success'  => $request['success'],
+            'message' => $request['message']
+        ]);
+
+        return redirect()->route('user.dashboard');
     }
 }

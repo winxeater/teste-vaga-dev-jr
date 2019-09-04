@@ -7,7 +7,13 @@
         <h1 id="zemis">Zemis</h1>
         <h3 id="vaga">Teste de vaga dev Jr.</h3>
 
-        {!! Form::open(['route' => 'cadastro.create', 'method' => 'post', 'class' => 'form-cadastro']) !!}
+        @if(session('success'))
+                <h3>{{ session('sucess')['messages'] }}</h3>
+        @else
+                <h3>Sem retorno</h3>
+        @endif
+
+        {!! Form::open(['route' => 'cadastrar.store','method' => 'post', 'class' => 'form-cadastro']) !!}
 
         <p id="cadastre">Cadastre os concorrentes aqui!</p>
 

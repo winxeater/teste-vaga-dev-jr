@@ -8,16 +8,16 @@
 
 
 <nav id="nav-principal" class="container navbar navbar-dark bg-dark">
-    <ul class="row">
+    <ul class="col-12 row">
         <li class="col">
-            <a href="/cadastro" class="">
-                <button type="button" class="btn btn-success"><i class="fas fa-user-plus"></i></button>
+            <a href="{{route('cad.cadastro')}}">
+                <button type="button" class="btn btn-success mrg"><i class="fas fa-user-plus"></i></button>
             </a>
         </li>
 
-        <li class="col">
+        <li class="col-1">
             <a href="" class="">
-                <button type="button" class="btn btn-success"><i class="fas fa-sign-out-alt"></i></button>
+                <button type="button" class="btn btn-light mrg"><i class="fas fa-sign-out-alt"></i></button>
             </a>
         </li>
     </ul>

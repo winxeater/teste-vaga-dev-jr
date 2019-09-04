@@ -98,6 +98,18 @@ section#conteudo-view form input[type="submit"]{
 }
 
 /*menu*/
+#nav-principal{
+    border-radius: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.mrg{
+    margin-top: 10px;
+}
+#btn-delete{
+    right: 0;
+}
 
 
 #nav-principal ul{

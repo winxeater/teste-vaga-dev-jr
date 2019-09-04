@@ -20,13 +20,12 @@ class CreateServicesTable extends Migration
 			$table->string('name',50);
             $table->string('email',80)->unique();
             $table->string('phone',11);
-            $table->date('birth')->nullable();
-            $table->boolval('marcar');
-            $table->boolval('facul');
-            $table->intval('salarial')->nullable();
+            $table->string('birth',10)->nullable();
+            $table->boolean('marcar');
+            $table->boolean('facul');
+            $table->string('salarial',10)->nullable();
             $table->string('habilidades',200)->nullable();
 
-			$table->timestamps();
 			$table->timestamps();
 			$table->softDeletes();
 		});

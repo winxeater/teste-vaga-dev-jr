@@ -7,23 +7,29 @@ use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
 use Exception;
 use Auth;
+use App\Repositories\ServicesRepository;
 
-
-
-class DashboardController extends Controller
+class DashboardController extends ServicesController
 {
     //
-    private $repository;
-    private $validator;
+    protected $repository;
+    protected $validator;
+    protected $servicesrepository;
 
-    public function __construct(UserRepository $repository, UserValidator $validator)
+    public function __construct(UserRepository $repository, UserValidator $validator, ServicesRepository $servicesrepository)
     {
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->servicesrepository = $servicesrepository;
     }
 
     public function index(){
-        return view('user.dashboard');
+
+        $concorrentes = $this->servicesrepository->all();
+
+        return view('user.dashboard', [
+            'concorrentes' => $concorrentes,
+        ]);
     }
 
     public function cadastro(){

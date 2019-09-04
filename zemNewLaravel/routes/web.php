@@ -22,5 +22,6 @@ Route::post('/login', ['as' => 'user.login', 'uses' => 'DashBoardController@auth
 Route::get('/bashboard', ['as' => 'user.dashboard', 'uses' => 'DashBoardController@index']);
 
 //cadastro de concorrentes
-Route::get('/cadastro', ['as' => 'cadastro.cadastro', 'uses' => 'DashBoardController@cadastro']);
-Route::resource('cadastro', 'ServicesController');
+Route::get('/cadastro', ['as' => 'cad.cadastro', 'uses' => 'DashBoardController@cadastro']);
+// Route::post('/cadastrar', ['as' => 'cadastrar.create', 'uses' => 'Controller@cadastrar']);
+Route::resource('cadastrar', 'ServicesController');

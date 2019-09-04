@@ -12,15 +12,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        User::create([
-            'cpf'           => '11122233345',
-            'name'          => 'Administrador', 
-            'phone'         => '3599999999', 
-            'birth'         => '1994-10-01',
-            'gender'        => 'M',  
-            'email'         => 'admin@teste.com', 
-            'password'      => env('PASSWORD_HASH') ? bcrypt('123456') : '123456', 
-        ]);
+        // // $this->call(UsersTableSeeder::class);
+        // User::create([
+        //     'cpf'           => '11122233345',
+        //     'name'          => 'Administrador', 
+        //     'phone'         => '3599999999', 
+        //     'birth'         => '1994-10-01',
+        //     'gender'        => 'M',  
+        //     'email'         => 'admin@teste.com', 
+        //     'password'      => env('PASSWORD_HASH') ? bcrypt('123456') : '123456', 
+        // ]);
     }
 }

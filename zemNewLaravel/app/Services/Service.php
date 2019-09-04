@@ -2,9 +2,12 @@
 
 namespace App\Services;
 
+use Illuminate\Database\QueryException;
+use Prettus\Validator\Exceptions\ValidatorException;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use App\Repositories\ServicesRepository;
 use App\Validators\ServicesValidator;
+use Exception;
 
 class Service{
 
@@ -19,7 +22,7 @@ class Service{
     public function store($data){
         try{
 
-            $this->validator->with($data->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
+            $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $concorrente = $this->repository->create($data);
 
             return [
@@ -27,7 +30,7 @@ class Service{
                 'message' => "Concorrente cadastrado",
                 'data'    => $concorrente,
             ];
-        }catch(\Exception $e){
+        }catch(Exception $e){
             return [
                 'success' => false,
                 'message' => "Erro de execução",
@@ -38,5 +41,23 @@ class Service{
 
 
     public function update(){}
-    public function delete(){}
+
+    public function destroy($concorrente_id){
+        try{
+
+            // $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
+            $concorrente = $this->repository->delete($concorrente_id);
+
+            return [
+                'success' => true,
+                'message' => "Concorrente deletado!",
+                'data'    => null,
+            ];
+        }catch(Exception $e){
+            return [
+                'success' => false,
+                'message' => "Erro de execução",
+            ];
+        }
+    }
 }
