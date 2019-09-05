@@ -14,9 +14,7 @@ class Controller extends BaseController
     public function homepage(){
 
         $titulo = "Página inicial - Teste Zemis!";
-        return view('welcome', [
-            'title' =>$titulo
-            ]);
+        return redirect('login');
     }
 
 

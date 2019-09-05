@@ -1,4 +1,4 @@
 <label class="{{ $class ?? null }}">
     <span>{{ $label ?? $input ?? "ERRO" }}</span>
-    {!! Form::checkbox($input, $value ?? false) !!}
+    {!! Form::checkbox($input, '1' ?? false) !!}
 </label>

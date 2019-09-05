@@ -20,9 +20,9 @@
         @include('templates.formulario.input', ['label' => 'Nome: ', 'input' => 'name', 'attributes' => ['placeholder' => 'Nome']])
         @include('templates.formulario.input', ['label' => 'E-mail: ', 'input' => 'email', 'attributes' => ['placeholder' => 'E-mail']])
         @include('templates.formulario.input', ['label' => 'Telefone: ', 'input' => 'phone', 'attributes' => ['placeholder' => 'Telefone']])
-        @include('templates.formulario.input', ['label' => 'Data de nascimento: ', 'input' => 'date', 'attributes' => ['placeholder' => ' ___ / ___ / ___']])
+        @include('templates.formulario.input', ['label' => 'Data de nascimento: ', 'input' => 'birth', 'attributes' => ['placeholder' => ' ___ / ___ / ___']])
         @include('templates.formulario.checkbox', ['label' => 'Cursando faculdade?', 'input' => 'facul'])
-        @include('templates.formulario.input', ['label' => 'Salário: ', 'input' => 'pretsalarial', 'attributes' => ['placeholder' => 'Pretenção salarial']])
+        @include('templates.formulario.input', ['label' => 'Salário: ', 'input' => 'salarial', 'attributes' => ['placeholder' => 'Pretenção salarial']])
         @include('templates.formulario.checkbox', ['label' => 'Marcar', 'input' => 'marcar'])
         @include('templates.formulario.input', ['label' => 'Habilidades e competências: ', 'input' => 'habilidades', 'attributes' => ['placeholder' => '']])
         

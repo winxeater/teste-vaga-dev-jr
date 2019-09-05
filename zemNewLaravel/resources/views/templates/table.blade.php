@@ -23,16 +23,18 @@
     <tbody>
 {{-- 'name', 'email', 'phone', 'birth', 'marcar', 'facul', 'salarial', 'habilidades',  --}}
         @foreach ($concorrentes as $concorrente)
-        @if ($concorrente->marcar == '1') {{$classe = "bg-success"}}
-        <tr class="{{$classe}}">
-        @endif
+       
+        <tr class="@if ($concorrente->marcar == '1') {{$classe = "bg-success"}} @endif">
+        
             <th scope="row"></th>
             <td>{{ $concorrente->name }}</td> 
             <td>{{ $concorrente->email }}</td>
             <td>{{ $concorrente->phone }}</td>
             <td>{{ $concorrente->birth }}</td>
             <td>{{ $concorrente->salarial }}</td>
-            <td>{{ $concorrente->facul }}</td>
+            
+            <td> @if($concorrente->facul == '1') {{$facul = 'Sim' }} @endif</td>
+            
             <td>{{ $concorrente->habilidades }}</td>
             <td class="text-center">
                 <div class="form-group row">
